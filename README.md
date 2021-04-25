@@ -1,4 +1,4 @@
-# lane_detector
+# Lane_Detector
  * Practice using houghline (opencv)
 #  Dependancies
  * cv2
