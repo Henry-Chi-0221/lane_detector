@@ -3,7 +3,7 @@
 #  Dependancies
  * cv2
  * numpy
-#  run
+#  Run
  ```bash
  python lane_detector.py
  ```
