@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 import math
-cap = cv2.VideoCapture('Driving Highway 401 (Pickering to Toronto).mp4')
+
+cap = cv2.VideoCapture('Demo.mp4')
 
 
 def top_hat(val , size):
@@ -13,13 +14,13 @@ def top_hat(val , size):
 while(cap.isOpened()):
     ret , frame = cap.read()
     if (ret == False):
-        cap = cv2.VideoCapture('lane_detector/Driving Highway 401 (Pickering to Toronto).mp4')
+        cap = cv2.VideoCapture('Demo.mp4')
         ret , frame = cap.read()
     
     src = frame[400: ,:]
     gray = cv2.cvtColor(src , cv2.COLOR_BGR2GRAY)
     ret , thres = cv2.threshold(gray , 140, 160,0)
-    cv2.imshow('test2' , thres)
+    cv2.imshow('threshold' , thres)
     #thres = cv2.inRange(src ,(0,0,0),(100,360,100))
     thres = cv2.blur(thres, (3,3))
     
@@ -28,7 +29,7 @@ while(cap.isOpened()):
     black_bg[400:,:] = k
     
     #print(black_bg[:320,:].shape == thres.shape)
-    cv2.imshow('test' , black_bg)
+    cv2.imshow('origin_size_treshold' , black_bg)
     edge_thres = 50
     detected_edges = cv2.Canny(thres, edge_thres, 3*edge_thres, 3 , 3)
     detected_edges = top_hat(detected_edges , 3)
