@@ -1,5 +1,5 @@
 # lane_detector
- * practice using houghline
+ * Practice using houghline (opencv)
 #  Dependancies
  * cv2
  * numpy
